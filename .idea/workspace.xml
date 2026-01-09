@@ -14,6 +14,10 @@
       <change beforePath="$PROJECT_DIR$/compose.override.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.override.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compose.prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.prod.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/reference.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/reference.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/alpine.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/alpine.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/digitalocean-dns.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/digitalocean-dns.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/digitalocean-droplet.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/digitalocean-droplet.png" afterDir="false" />
@@ -39,6 +43,7 @@
       <change beforePath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ResultRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ResultRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/challenges/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/challenges/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/challenges/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/challenges/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
@@ -149,6 +154,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
       <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/twig/html-extra" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-twig-component" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -227,7 +241,7 @@
       <workItem from="1767789525098" duration="12226000" />
       <workItem from="1767810582563" duration="11000" />
       <workItem from="1767862335076" duration="20836000" />
-      <workItem from="1767946976202" duration="14300000" />
+      <workItem from="1767946976202" duration="17021000" />
     </task>
     <servers />
   </component>
