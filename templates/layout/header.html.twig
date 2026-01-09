@@ -1,13 +1,39 @@
-<header class="flex px-3 justify-between z-20 fixed top-0 w-full bg-black/20 backdrop-blur-md text-primary-content items-center h-13">
-    <a href={{ path("app_index") }}><span class="leading-10 font-black">40Fit</span></a>
-
-    <span class="flex gap-3 items-center">
-        {% if app.user is null %}
-            <a href="{{ path("auth_login") }}" class="btn btn-primary">Se Connecter</a>
-            <a href="{{ path("auth_register") }}" class="btn btn-outline">S'enregistrer</a>
-     {% else %}
-            <a href="{{ path("profile_index") }}"  class="btn btn-primary">Dashboard</a>
-            <a href="{{ path("auth_logout") }}"  class="btn btn-outline">Se Déconnecter</a>
-        {% endif %}
-    </span>
+<header class="sticky top-0 z-30 w-full bg-base-100 border-b border-base-200 shadow-sm text-base-content">
+    <div class="navbar max-w-6xl mx-auto px-4">
+        <div class="navbar-start gap-2">
+            <div class="dropdown md:hidden">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
+                    <li><a href="{{ path('app_index') }}">Accueil</a></li>
+                    <li><a href="{{ path('challenges_index') }}">Challenges</a></li>
+                    {% if app.user %}
+                        <li><a href="{{ path('profile_index') }}">Profil</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <a href="{{ path('app_index') }}" class="text-lg font-extrabold tracking-tight">40Fit</a>
+        </div>
+        <div class="navbar-center hidden md:flex">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li><a href="{{ path('app_index') }}">Accueil</a></li>
+                <li><a href="{{ path('challenges_index') }}">Challenges</a></li>
+                {% if app.user %}
+                    <li><a href="{{ path('profile_index') }}">Profil</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="navbar-end gap-2">
+            {% if app.user is null %}
+                <a href="{{ path('auth_login') }}" class="btn btn-primary btn-sm">Se connecter</a>
+                <a href="{{ path('auth_register') }}" class="btn btn-outline btn-sm">S'enregistrer</a>
+            {% else %}
+                <a href="{{ path('profile_index') }}" class="btn btn-primary btn-sm">Dashboard</a>
+                <a href="{{ path('auth_logout') }}" class="btn btn-outline btn-sm">Se déconnecter</a>
+            {% endif %}
+        </div>
+    </div>
 </header>

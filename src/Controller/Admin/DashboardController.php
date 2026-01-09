@@ -11,6 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 #[AdminDashboard('/admin', routeName: 'admin')]
@@ -27,6 +29,8 @@ class DashboardController extends AbstractDashboardController
             return $this->redirect($url);
         } catch (\Exception $ignored) {
             return $this->redirect("app_login");
+        } catch (NotFoundExceptionInterface $e) {
+        } catch (ContainerExceptionInterface $e) {
         }
     }
 

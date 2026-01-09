@@ -18,13 +18,6 @@
                         <div class="alert alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
 
-                    {% if app.user %}
-                        <div class="alert alert-info">
-                            Vous êtes connecté en tant que {{ app.user.userIdentifier }}.
-                            <a href="{{ logout_path() }}" class="link link-primary">Se déconnecter</a>
-                        </div>
-                    {% endif %}
-
                     <form method="post" class="space-y-4">
                         <div class="form-control">
                             <label class="label" for="username">

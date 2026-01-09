@@ -3,85 +3,93 @@
 {% block title %}40Fit - Relevez le défi !{% endblock %}
 
 {% block body %}
-    {# Hero Section #}
-    <section class="hero min-h-[80vh] bg-base-200 relative overflow-hidden text-white">
-        <img draggable="false" src="{{ asset('assets/images/herobanner.webp') }}" alt="Sportifs en action sur 40Fit" class="absolute brightness-50 inset-0 h-full w-full object-cover" />
-        <div class="hero-overlay bg-opacity-60 bg-gradient-to-r from-primary/20 to-secondary/20"></div>
-        <div>
-            <div class="relative z-20 max-w-2xl">
-                <h1 class="text-5xl font-bold mb-6">
-                    Repoussez vos limites avec 40Fit
-                </h1>
-                <p class="text-xl mb-8 opacity-90">
-                    La plateforme ultime pour relever des challenges sportifs, suivre vos progrès et rejoindre une communauté de passionnés.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="{{ path('auth_register') }}" class="btn btn-outline btn-lg">Commencer maintenant</a>
+    <section class="relative overflow-hidden bg-base-200">
+        <img
+            draggable="false"
+            src="{{ asset('assets/images/herobanner.webp') }}"
+            alt="Sportifs en action sur 40Fit"
+            class="absolute inset-0 h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/70"></div>
+        <div class="relative z-10 max-w-6xl mx-auto px-4 py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center text-white">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                        Repoussez vos limites avec 40Fit
+                    </h1>
+                    <p class="mt-5 text-lg md:text-xl opacity-80">
+                        La plateforme ultime pour relever des challenges sportifs, suivre vos progrès et rejoindre une communauté motivée.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="{{ path('auth_register') }}" class="btn btn-primary btn-lg">Commencer maintenant</a>
+                        <a href="{{ path('challenges_index') }}" class="btn btn-outline btn-lg text-white border-white/60 hover:border-white">Voir les challenges</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {# Features Section #}
     <section class="py-20 px-4 bg-base-100">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16">Pourquoi choisir 40Fit ?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="card bg-base-200 shadow-xl">
-                    <div class="card-body items-center text-center">
-                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold">Pourquoi choisir 40Fit ?</h2>
+                <p class="mt-4 text-sm opacity-70">Des challenges concrets, un suivi clair et une communauté engagée.</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-base-200/70 border border-base-200/60 shadow-xl">
+                    <div class="card-body items-start">
+                        <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 class="card-title">Défis Variés</h3>
-                        <p>Du cardio à la musculation, trouvez le challenge qui correspond à vos objectifs.</p>
+                        <h3 class="card-title mt-4">Défis variés</h3>
+                        <p class="text-sm opacity-70">Du cardio à la musculation, trouvez le challenge adapté.</p>
                     </div>
                 </div>
-                <div class="card bg-base-200 shadow-xl">
-                    <div class="card-body items-center text-center">
-                        <div class="w-16 h-16 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="card bg-base-200/70 border border-base-200/60 shadow-xl">
+                    <div class="card-body items-start">
+                        <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2" />
                             </svg>
                         </div>
-                        <h3 class="card-title">Suivi en Temps Réel</h3>
-                        <p>Visualisez vos progrès quotidiennement et restez motivé tout au long de votre parcours.</p>
+                        <h3 class="card-title mt-4">Suivi en temps réel</h3>
+                        <p class="text-sm opacity-70">Visualisez vos progrès et restez motivé.</p>
                     </div>
                 </div>
-                <div class="card bg-base-200 shadow-xl">
-                    <div class="card-body items-center text-center">
-                        <div class="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                <div class="card bg-base-200/70 border border-base-200/60 shadow-xl">
+                    <div class="card-body items-start">
+                        <div class="w-12 h-12 bg-accent/10 text-accent rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 0 018 0z" />
                             </svg>
                         </div>
-                        <h3 class="card-title">Communauté Active</h3>
-                        <p>Partagez vos réussites et motivez-vous avec d'autres sportifs passionnés.</p>
+                        <h3 class="card-title mt-4">Communauté active</h3>
+                        <p class="text-sm opacity-70">Partagez vos réussites et progressez ensemble.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {# CTA Section #}
     <section class="py-20 px-4">
         <div class="max-w-4xl mx-auto bg-primary text-primary-content rounded-3xl p-12 text-center shadow-2xl relative overflow-hidden">
             <div class="relative z-10">
-                <h2 class="text-4xl font-bold mb-6">Prêt à relever votre premier défi ?</h2>
-                <p class="text-xl mb-10 opacity-90">Inscrivez-vous gratuitement dès aujourd'hui et commencez votre transformation.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à relever votre premier défi ?</h2>
+                <p class="text-lg md:text-xl mb-10 opacity-90">
+                    Inscrivez-vous gratuitement dès aujourd'hui et commencez votre transformation.
+                </p>
                 <a href="{{ path('auth_register') }}" class="btn btn-secondary btn-lg">Créer mon compte</a>
             </div>
-            {# Decorative elements #}
             <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-white/10 rounded-full"></div>
             <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-32 h-32 bg-white/10 rounded-full"></div>
         </div>
     </section>
 
-    {# Stats Section #}
     <section class="py-16 bg-base-200">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+            <div class="stats stats-vertical lg:stats-horizontal shadow w-full bg-base-100">
                 <div class="stat place-items-center">
                     <div class="stat-title">Challenges terminés</div>
                     <div class="stat-value text-primary">2,400+</div>

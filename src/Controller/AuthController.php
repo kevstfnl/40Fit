@@ -19,6 +19,10 @@ class AuthController extends AbstractController
     #[Route(path: '/login', name: 'login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_index');
+        }
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -31,6 +35,10 @@ class AuthController extends AbstractController
     #[Route('/register', name: 'register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_index');
+        }
+
         $user = new User();
 
         $form = $this->createForm(RegistrationFormType::class, $user);
