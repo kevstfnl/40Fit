@@ -1,0 +1,13 @@
+<header class="flex px-3 justify-between z-20 fixed top-0 w-full bg-black/20 backdrop-blur-md text-primary-content items-center h-13">
+    <a href={{ path("app_index") }}><span class="leading-10 font-black">40Fit</span></a>
+
+    <span class="flex gap-3 items-center">
+        {% if app.user is null %}
+            <a href="{{ path("auth_login") }}" class="btn btn-primary">Se Connecter</a>
+            <a href="{{ path("auth_register") }}" class="btn btn-outline">S'enregistrer</a>
+     {% else %}
+            <a href="{{ path("profile_index") }}"  class="btn btn-primary">Dashboard</a>
+            <a href="{{ path("auth_logout") }}"  class="btn btn-outline">Se Déconnecter</a>
+        {% endif %}
+    </span>
+</header>

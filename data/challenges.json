@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "categoryName": "Force Corporelle",
+        "title": "Pompes",
+        "description": "Réussir 30 pompes d'affilée (corps droit, poitrine proche du sol)."
+    },
+    {
+        "id": 2,
+        "categoryName": "Force Corporelle",
+        "title": "Tractions",
+        "description": "Réussir 10 tractions d'affilée (prise pronation, menton au-dessus de la barre)."
+    },
+    {
+        "id": 3,
+        "categoryName": "Force Corporelle",
+        "title": "Planche",
+        "description": "Maintenir la planche pendant 2 minutes (corps aligné, abdos contractés)."
+    },
+    {
+        "id": 4,
+        "categoryName": "Force Corporelle",
+        "title": "Dips",
+        "description": "Réussir 15 dips d'affilée (sur barres parallèles ou deux chaises, bras à 90 degrés)."
+    },
+    {
+        "id": 5,
+        "categoryName": "Force Corporelle",
+        "title": "Squats au poids du corps",
+        "description": "Réussir 50 squats au poids du corps sans interruption (cuisses parallèles au sol)."
+    },
+    {
+        "id": 6,
+        "categoryName": "Endurance Cardiovasculaire",
+        "title": "Course 1500m",
+        "description": "Courir 1500 mètres en moins de 8 minutes."
+    },
+    {
+        "id": 7,
+        "categoryName": "Endurance Cardiovasculaire",
+        "title": "Course 5km",
+        "description": "Courir 5 km en moins de 30 minutes."
+    },
+    {
+        "id": 8,
+        "categoryName": "Endurance Cardiovasculaire",
+        "title": "Burpees",
+        "description": "Réussir 20 burpees complets sans se reposer (poitrine au sol, saut et claquement de mains)."
+    },
+    {
+        "id": 9,
+        "categoryName": "Endurance Cardiovasculaire",
+        "title": "Saut à la corde",
+        "description": "Sauter à la corde pendant 3 minutes sans interruption."
+    },
+    {
+        "id": 10,
+        "categoryName": "Endurance Cardiovasculaire",
+        "title": "Natation 500m",
+        "description": "Nager 500 mètres sans s'arrêter (si accès à une piscine)."
+    },
+    {
+        "id": 11,
+        "categoryName": "MSEC",
+        "title": "Toucher les orteils",
+        "description": "Toucher ses orteils avec les mains, jambes tendues, et maintenir 30 secondes."
+    },
+    {
+        "id": 12,
+        "categoryName": "MSEC",
+        "title": "Squat profond",
+        "description": "Maintenir un squat profond, talons au sol, dos droit, pendant 1 minute."
+    },
+    {
+        "id": 13,
+        "categoryName": "MSEC",
+        "title": "Équilibre sur une jambe",
+        "description": "Tenir en équilibre sur une jambe pendant 1 minute, yeux ouverts, sans bouger."
+    },
+    {
+        "id": 14,
+        "categoryName": "MSEC",
+        "title": "Mobilité des épaules",
+        "description": "Réussir à joindre les mains derrière le dos (une main par le haut, l'autre par le bas) des deux côtés."
+    },
+    {
+        "id": 15,
+        "categoryName": "MSEC",
+        "title": "Fente profonde",
+        "description": "Réussir une fente profonde avec le genou arrière au sol et étirement du psoas, maintien 30 secondes de chaque côté."
+    },
+    {
+        "id": 16,
+        "categoryName": "Santé & Mesures Clés",
+        "title": "IMC",
+        "description": "Maintenir un Indice de Masse Corporelle (IMC) entre 18.5 et 24.9."
+    },
+    {
+        "id": 17,
+        "categoryName": "Santé & Mesures Clés",
+        "title": "Fréquence cardiaque au repos",
+        "description": "Atteindre une fréquence cardiaque au repos inférieure à 65 battements par minute."
+    },
+    {
+        "id": 18,
+        "categoryName": "Santé & Mesures Clés",
+        "title": "Tension artérielle",
+        "description": "Maintenir une tension artérielle optimale (inférieure à 120/80 mmHg)."
+    },
+    {
+        "id": 19,
+        "categoryName": "Santé & Mesures Clés",
+        "title": "Tour de taille",
+        "description": "Maintenir un tour de taille sain (inférieur à 94 cm)."
+    },
+    {
+        "id": 20,
+        "categoryName": "Santé & Mesures Clés",
+        "title": "Masse grasse",
+        "description": "Atteindre un pourcentage de masse grasse sain (inférieur à 20%)."
+    }
+]
