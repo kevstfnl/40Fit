@@ -81,6 +81,10 @@
                         </svg>
                         <input type="search" required placeholder="Rechercher un challenge"/>
                     </label>
+
+                    {% if pendingChallengesCount == 0 %}
+                        <p class="text-sm opacity-60">Aucun challenge disponible pour enregistrer un résultat.</p>
+                    {% endif %}
                 </div>
             </div>
 

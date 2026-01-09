@@ -9,8 +9,30 @@
         </div>
         <p>{{ challenge.description }}</p>
 
-        {%  if form is not null %}
-            {{ form(form) }}
+        {% if resultForm %}
+            <div class="card bg-base-100 shadow-xl border border-base-200/60 max-w-md">
+                <div class="card-body gap-4">
+                    <h2 class="card-title">Enregistrer mon resultat</h2>
+                    {% if form_errors(resultForm) %}
+                        <div class="alert alert-error">{{ form_errors(resultForm) }}</div>
+                    {% endif %}
+                    {{ form_start(resultForm, { attr: { class: 'space-y-4' } }) }}
+                        <div class="form-control">
+                            <label class="label" for="{{ resultForm.score.vars.id }}">
+                                <span class="label-text">Score</span>
+                            </label>
+                            {{ form_widget(resultForm.score, { attr: { class: 'input input-bordered w-full', placeholder: 'Ex: 10' } }) }}
+                            {{ form_errors(resultForm.score) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Enregistrer le resultat</button>
+                    {{ form_end(resultForm) }}
+                </div>
+            </div>
+        {% else %}
+            <p class="text-sm opacity-70">
+                <a class="link link-secondary" href="{{ path('auth_login') }}">Connectez-vous</a>
+                pour enregistrer un resultat.
+            </p>
         {% endif %}
     </div>
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\ProfileType;
 use App\Repository\ChallengeRepository;
 use App\Repository\ResultRepository;
-use App\Form\ProfileType;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

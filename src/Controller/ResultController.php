@@ -13,8 +13,6 @@ class ResultController extends AbstractController
     #[Route('/result')]
     public function index(): Response
     {
-
-
         return $this->render('result/index.html.twig');
     }
 }

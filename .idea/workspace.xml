@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff70de10-2711-429d-82c2-3a29d70db68c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/result/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -33,6 +34,8 @@
       <change beforePath="$PROJECT_DIR$/frankenphp/conf.d/20-app.prod.ini" beforeDir="false" afterPath="$PROJECT_DIR$/frankenphp/conf.d/20-app.prod.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ChallengesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ChallengesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ResultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ResultType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResultType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ResultRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ResultRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
@@ -224,7 +227,7 @@
       <workItem from="1767789525098" duration="12226000" />
       <workItem from="1767810582563" duration="11000" />
       <workItem from="1767862335076" duration="20836000" />
-      <workItem from="1767946976202" duration="11132000" />
+      <workItem from="1767946976202" duration="14300000" />
     </task>
     <servers />
   </component>
