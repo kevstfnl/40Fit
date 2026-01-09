@@ -17,9 +17,6 @@ class ChallengeRepository extends ServiceEntityRepository
         parent::__construct($registry, Challenge::class);
     }
 
-    /**
-     * @return Challenge[]
-     */
     public function findWithoutResultForUser(User $user): array
     {
         return $this->createQueryBuilder('c')
@@ -31,29 +28,52 @@ class ChallengeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findGroupedByCategory(): array
+    {
+        $challenges = $this->createQueryBuilder('c')
+            ->leftJoin('c.category', 'cat')
+            ->addSelect('cat')
+            ->orderBy('cat.title', 'ASC')
+            ->addOrderBy('c.title', 'ASC')
+            ->getQuery()
+            ->getResult();
 
-    //    /**
-    //     * @return Challenge[] Returns an array of Challenge objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+        return $this->groupByCategoryTitle($challenges);
+    }
 
-    //    public function findOneBySomeField($value): ?Challenge
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findWithoutResultForUserGrouped(User $user): array
+    {
+        $challenges = $this->createQueryBuilder('c')
+            ->leftJoin('c.category', 'cat')
+            ->addSelect('cat')
+            ->leftJoin('c.results', 'r', 'WITH', 'r.userResult = :user')
+            ->andWhere('r.id IS NULL')
+            ->setParameter('user', $user)
+            ->orderBy('cat.title', 'ASC')
+            ->addOrderBy('c.title', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        return $this->groupByCategoryTitle($challenges);
+    }
+
+    private function groupByCategoryTitle(array $challenges): array
+    {
+        $grouped = [];
+
+        foreach ($challenges as $challenge) {
+            $title = $challenge->getCategory()->getTitle();
+            $grouped[$title][] = $challenge;
+        }
+
+        $groupedList = [];
+        foreach ($grouped as $title => $items) {
+            $groupedList[] = [
+                'title' => $title,
+                'items' => $items,
+            ];
+        }
+
+        return $groupedList;
+    }
 }

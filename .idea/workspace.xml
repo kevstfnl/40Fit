@@ -5,8 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff70de10-2711-429d-82c2-3a29d70db68c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compose.override.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.override.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/alpine.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/alpine.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/digitalocean-dns.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/digitalocean-dns.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/digitalocean-droplet.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/digitalocean-droplet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/existing-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/existing-project.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/extra-services.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/extra-services.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/makefile.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/makefile.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/mysql.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/options.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/options.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/production.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/production.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tls.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tls.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/troubleshooting.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/troubleshooting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/updating.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/updating.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/xdebug.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/xdebug.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frankenphp/.env" beforeDir="false" afterPath="$PROJECT_DIR$/frankenphp/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frankenphp/Caddyfile" beforeDir="false" afterPath="$PROJECT_DIR$/frankenphp/Caddyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frankenphp/conf.d/10-app.ini" beforeDir="false" afterPath="$PROJECT_DIR$/frankenphp/conf.d/10-app.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frankenphp/conf.d/20-app.dev.ini" beforeDir="false" afterPath="$PROJECT_DIR$/frankenphp/conf.d/20-app.dev.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frankenphp/conf.d/20-app.prod.ini" beforeDir="false" afterPath="$PROJECT_DIR$/frankenphp/conf.d/20-app.prod.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ChallengesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ChallengesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ResultRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ResultRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/challenges/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/challenges/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/challenges/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/challenges/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +224,7 @@
       <workItem from="1767789525098" duration="12226000" />
       <workItem from="1767810582563" duration="11000" />
       <workItem from="1767862335076" duration="20836000" />
-      <workItem from="1767946976202" duration="9572000" />
+      <workItem from="1767946976202" duration="11132000" />
     </task>
     <servers />
   </component>

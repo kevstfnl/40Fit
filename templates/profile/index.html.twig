@@ -63,7 +63,7 @@
                 <div class="card-body gap-4">
                     <div class="flex items-center justify-between gap-4">
                         <h2 class="card-title">Challenges à faire</h2>
-                        <span class="badge badge-outline">{{ pendingChallenges|length }} en attente</span>
+                        <span class="badge badge-outline">{{ pendingChallengesCount }} en attente</span>
                     </div>
                     <p class="text-sm opacity-70">Recherchez vos prochains challenges et lancez-vous.</p>
                     <label class="input input-bordered flex items-center gap-3 w-full">
@@ -84,33 +84,38 @@
                 </div>
             </div>
 
-            {% if pendingChallenges is empty %}
+            {% if groupedPendingChallenges is empty %}
                 <p class="opacity-70">Tous les challenges ont un résultat.</p>
             {% else %}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:col-span-2">
-                    {% for challenge in pendingChallenges %}
-                        <article class="card bg-base-100 shadow-xl border border-base-200/60 overflow-hidden">
-                            <div class="card-body gap-4">
-                                <div class="flex items-start justify-between gap-3">
-                                    <span class="badge badge-outline badge-secondary">
-                                        {{ challenge.category.title }}
-                                    </span>
-                                    <span class="badge badge-primary badge-outline">A faire</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold leading-snug">{{ challenge.title }}</h3>
-                                    <p class="mt-2 text-sm opacity-70 leading-relaxed">
-                                        {{ challenge.description }}
-                                    </p>
-                                </div>
-                                <div class="card-actions justify-between items-center mt-auto">
-                                    <span class="text-xs uppercase tracking-wide opacity-60">Challenge</span>
-                                    <a class="btn btn-primary btn-sm" href="{{ path('challenges_show', {'slug': challenge.slug}) }}">
-                                        Commencer
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                <div class="space-y-6 lg:col-span-2">
+                    {% for group in groupedPendingChallenges %}
+                        <h3 class="text-base font-semibold">{{ group.title }}</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            {% for challenge in group.items %}
+                                <article class="card bg-base-100 shadow-xl border border-base-200/60 overflow-hidden">
+                                    <div class="card-body gap-4">
+                                        <div class="flex items-start justify-between gap-3">
+                                            <span class="badge badge-outline badge-secondary">
+                                                {{ challenge.category.title }}
+                                            </span>
+                                            <span class="badge badge-primary badge-outline">A faire</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold leading-snug">{{ challenge.title }}</h3>
+                                            <p class="mt-2 text-sm opacity-70 leading-relaxed">
+                                                {{ challenge.description }}
+                                            </p>
+                                        </div>
+                                        <div class="card-actions justify-between items-center mt-auto">
+                                            <span class="text-xs uppercase tracking-wide opacity-60">Challenge</span>
+                                            <a class="btn btn-primary btn-sm" href="{{ path('challenges_show', {'slug': challenge.slug}) }}">
+                                                Commencer
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
                     {% endfor %}
                 </div>
             {% endif %}

@@ -8,6 +8,10 @@
             <h1>{{ challenge.title }}</h1>
         </div>
         <p>{{ challenge.description }}</p>
+
+        {%  if form is not null %}
+            {{ form(form) }}
+        {% endif %}
     </div>
 
 {% endblock %}

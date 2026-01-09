@@ -31,11 +31,17 @@ class ProfileController extends AbstractController
         }
 
         $results = $resultRepository->findByUser($user);
-        $pendingChallenges = $challengeRepository->findWithoutResultForUser($user);
+        $groupedPendingChallenges = $challengeRepository->findWithoutResultForUserGrouped($user);
+        $pendingChallengesCount = 0;
+
+        foreach ($groupedPendingChallenges as $group) {
+            $pendingChallengesCount += count($group['items']);
+        }
 
         return $this->render('profile/index.html.twig', [
             'results' => $results,
-            'pendingChallenges' => $pendingChallenges,
+            'groupedPendingChallenges' => $groupedPendingChallenges,
+            'pendingChallengesCount' => $pendingChallengesCount,
         ]);
     }
 
@@ -66,4 +72,5 @@ class ProfileController extends AbstractController
             'profileForm' => $form,
         ]);
     }
+
 }

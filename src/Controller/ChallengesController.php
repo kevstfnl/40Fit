@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Challenge;
+use App\Form\ResultType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,10 +24,10 @@ class ChallengesController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(): Response
     {
-        $challenges = $this->em->getRepository(Challenge::class)->findAll();
+        $groupedChallenges = $this->em->getRepository(Challenge::class)->findGroupedByCategory();
 
         return $this->render('challenges/index.html.twig', [
-            "challenges" => $challenges,
+            'groupedChallenges' => $groupedChallenges,
         ]);
     }
 
@@ -36,10 +37,11 @@ class ChallengesController extends AbstractController
         $challenge = $this->em->getRepository(Challenge::class)->findOneBy(['slug' => $slug]);
         $category = $challenge->getCategory();
 
+
         return $this->render('challenges/show.html.twig', [
             'challenge' => $challenge,
             'category' => $category,
         ]);
     }
-}
 
+}
