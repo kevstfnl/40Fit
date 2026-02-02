@@ -17,17 +17,10 @@
             </div>
             <a href="{{ path('app_index') }}" class="text-lg font-extrabold tracking-tight">40Fit</a>
         </div>
-        <div class="navbar-center hidden md:flex">
-            <ul class="menu menu-horizontal px-1 gap-2">
-                <li><a href="{{ path('app_index') }}">Accueil</a></li>
-                <li><a href="{{ path('challenges_index') }}">Challenges</a></li>
-                {% if app.user %}
-                    <li><a href="{{ path('profile_index') }}">Profil</a></li>
-                {% endif %}
-            </ul>
-        </div>
         <div class="navbar-end gap-2">
             {% if app.user is null %}
+                <a href="{{ path('app_index') }}">Accueil</a>
+                <a href="{{ path('challenges_index') }}">Challenges</a>
                 <a href="{{ path('auth_login') }}" class="btn btn-primary btn-sm">Se connecter</a>
                 <a href="{{ path('auth_register') }}" class="btn btn-outline btn-sm">S'enregistrer</a>
             {% else %}

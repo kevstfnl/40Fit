@@ -32,6 +32,9 @@ class Result
     #[ORM\JoinColumn(nullable: false)]
     private ?Challenge $challenge = null;
 
+    #[ORM\Column]
+    private ?\DateTime $date = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -104,6 +107,18 @@ class Result
     public function setChallenge(?Challenge $challenge): static
     {
         $this->challenge = $challenge;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTime
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTime $date): static
+    {
+        $this->date = $date;
 
         return $this;
     }

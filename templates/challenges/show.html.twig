@@ -1,10 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <section class="bg-base-200 grid place-items-center bg-gradient-to-br from-base-200 via-base-100 to-base-200 min-h-screen py-16 px-4">
+    <section
+        class="bg-base-200 grid place-items-center bg-gradient-to-br from-base-200 via-base-100 to-base-200 min-h-screen py-16 px-4">
         <div class="absolute -top-16 -right-16 w-72 h-72 bg-secondary/25 rounded-full blur-xl"></div>
         <div class="absolute -bottom-20 -left-16 w-80 h-80 bg-primary/25 rounded-full blur-xl"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] bg-secondary/10 rounded-full blur-3xl"></div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] bg-secondary/10 rounded-full blur-3xl"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8">
             <div class="card bg-base-100 shadow-2xl border border-base-200/60">
@@ -36,14 +38,21 @@
                             <div class="alert alert-error">{{ form_errors(resultForm) }}</div>
                         {% endif %}
                         {{ form_start(resultForm, { attr: { class: 'space-y-4' } }) }}
-                            <div class="form-control">
-                                <label class="label" for="{{ resultForm.score.vars.id }}">
-                                    <span class="label-text">Score</span>
-                                </label>
-                                {{ form_widget(resultForm.score, { attr: { class: 'input input-bordered w-full', placeholder: 'Ex: 10' } }) }}
-                                {{ form_errors(resultForm.score) }}
-                            </div>
-                            <button type="submit" class="btn btn-primary w-full">Enregistrer le résultat</button>
+                        <div class="form-control">
+                            <label class="label" for="{{ resultForm.score.vars.id }}">
+                                <span class="label-text">Score</span>
+                            </label>
+                            {{ form_widget(resultForm.score, { attr: { class: 'input input-bordered w-full', placeholder: 'Ex: 10' } }) }}
+                            {{ form_errors(resultForm.score) }}
+                        </div>
+                        <div class="form-control">
+                            <label class="label" for="{{ resultForm.score.vars.id }}">
+                                <span class="label-text">Date</span>
+                            </label>
+                            {{ form_widget(resultForm.date, { attr: { class: 'input input-bordered w-full' }}) }}
+                            {{ form_errors(resultForm.date) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Enregistrer le résultat</button>
                         {{ form_end(resultForm) }}
                     {% else %}
                         <p class="text-sm opacity-70">

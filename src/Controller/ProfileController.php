@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ProfileType;
+use App\Form\SearchType;
 use App\Repository\ChallengeRepository;
 use App\Repository\ResultRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,16 +28,12 @@ class ProfileController extends AbstractController
     public function index(Request $request, ResultRepository $resultRepository, ChallengeRepository $challengeRepository): Response
     {
         $user = $this->getUser();
-
         if (!$user instanceof User) {
             throw $this->createAccessDeniedException('User not authenticated.');
         }
-        $results = $resultRepository->findByUser($user);
 
-        $formSearch = $this->createFormBuilder()
-            ->add("searchInput", TextType::class,  ['label' => false, 'required' => false, 'attr' => ['placeholder' => 'Nom du challenge']])
-            ->add("search", SubmitType::class)
-            ->getForm();
+        $results = $resultRepository->findByUser($user);
+        $formSearch = $this->createForm(SearchType::class);
 
         $searchInput = null;
         $formSearch->handleRequest($request);
@@ -50,7 +47,6 @@ class ProfileController extends AbstractController
         foreach ($groupedPendingChallenges as $group) {
             $pendingChallengesCount += count($group['items']);
         }
-
 
         return $this->render('profile/index.html.twig', [
             'results' => $results,

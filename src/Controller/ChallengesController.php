@@ -8,11 +8,13 @@ use App\Entity\Challenge;
 use App\Entity\Result;
 use App\Entity\User;
 use App\Form\ResultType;
+use App\Form\SearchType;
 use App\Repository\ChallengeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -31,10 +33,7 @@ class ChallengesController extends AbstractController
     public function index(Request $request, ChallengeRepository $challengeRepository): Response
     {
 
-        $formSearch = $this->createFormBuilder()
-            ->add("searchInput", TextType::class,  ['label' => false, 'required' => false, 'attr' => ['placeholder' => 'Nom du challenge']])
-            ->add("search", SubmitType::class)
-            ->getForm();
+        $formSearch = $this->createForm(SearchType::class);
 
         $searchInput = null;
         $formSearch->handleRequest($request);
@@ -54,26 +53,30 @@ class ChallengesController extends AbstractController
     {
         $challenge = $this->em->getRepository(Challenge::class)->findOneBy(['slug' => $slug]);
         $category = $challenge->getCategory();
-        $resultForm = null;
-
         $user = $this->getUser();
-        if ($user instanceof User) {
-            $result = new Result();
-            $result->setUserResult($user);
-            $result->setChallenge($challenge);
 
-            $resultForm = $this->createForm(ResultType::class, $result, [
-                'include_challenge_field' => false,
-            ]);
+        $result = $this->em->getRepository(Result::class)->findOneBy(['challenge' => $challenge, 'userResult' => $user]);
+        if (!$result) {
+            $result = new Result()->setUserResult($user)->setChallenge($challenge);
+        }
 
-            $resultForm->handleRequest($request);
+        $resultForm = $this->createForm(ResultType::class, $result);
+        if ($result->getScore()) {
+            $resultForm->get('score')->setData($result->getScore());
+        }
+        if ($result->getDate()) {
+            $resultForm->get('date')->setData($result->getDate());
+        } else {
+            $resultForm->get('date')->setData(new \DateTime());
+        }
+        $resultForm->handleRequest($request);
 
-            if ($resultForm->isSubmitted() && $resultForm->isValid()) {
-                $this->em->persist($result);
-                $this->em->flush();
+        if ($resultForm->isSubmitted() && $resultForm->isValid()) {
 
-                return $this->redirectToRoute('profile_index');
-            }
+            $this->em->persist($result);
+            $this->em->flush();
+            return $this->redirectToRoute('profile_index');
+
         }
 
         return $this->render('challenges/show.html.twig', [

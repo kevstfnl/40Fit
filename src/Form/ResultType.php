@@ -6,9 +6,11 @@ use App\Entity\Challenge;
 use App\Entity\Result;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 class ResultType extends AbstractType
 {
@@ -18,15 +20,15 @@ class ResultType extends AbstractType
             ->add('score', NumberType::class, [
                 'scale' => 2,
             ])
+            ->add('date', DateType::class, [
+                'constraints' => [
+                    new LessThanOrEqual('today', message: "La date doit etre inferieur a aujourd'hui"),
+                ],
+                'attr' => [
+                    'max' => new \DateTime()->format('Y-m-d'),
+                ],
+            ])
         ;
-
-        if ($options['include_challenge_field']) {
-            $builder->add('challenge', EntityType::class, [
-                'class' => Challenge::class,
-                'choice_label' => 'title',
-                'choices' => $options['challenges'],
-            ]);
-        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
