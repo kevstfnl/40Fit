@@ -44,7 +44,7 @@ class ChallengeRepository extends ServiceEntityRepository
     public function findWithoutResultForUserGrouped(User $user, ?string $search): array
     {
         $challenges = $this->createQueryBuilder('c')
-            ->where('c.title LIKE :search')
+            ->where('LOWER(c.title) LIKE LOWER(:search)')
             ->leftJoin('c.category', 'cat')
             ->addSelect('cat')
             ->leftJoin('c.results', 'r', 'WITH', 'r.userResult = :user')

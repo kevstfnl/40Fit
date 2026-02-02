@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff70de10-2711-429d-82c2-3a29d70db68c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/40Fit.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ChallengesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ChallengesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProfileType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfileType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+    <list default="true" id="ff70de10-2711-429d-82c2-3a29d70db68c" name="Changes" comment="Feature add searchbar">
       <change beforePath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChallengeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/challenges/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/challenges/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,8 +225,17 @@
       <workItem from="1768138312140" duration="111000" />
       <workItem from="1768138694144" duration="506000" />
       <workItem from="1768139208699" duration="2000" />
-      <workItem from="1770021725205" duration="6974000" />
+      <workItem from="1770021725205" duration="7527000" />
     </task>
+    <task id="LOCAL-00001" summary="Feature add searchbar">
+      <option name="closed" value="true" />
+      <created>1770030181610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770030181610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +251,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feature add searchbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature add searchbar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
