@@ -41,14 +41,31 @@ class ChallengeRepository extends ServiceEntityRepository
         return $this->groupByCategoryTitle($challenges);
     }
 
-    public function findWithoutResultForUserGrouped(User $user): array
+    public function findWithoutResultForUserGrouped(User $user, ?string $search): array
     {
         $challenges = $this->createQueryBuilder('c')
+            ->where('c.title LIKE :search')
             ->leftJoin('c.category', 'cat')
             ->addSelect('cat')
             ->leftJoin('c.results', 'r', 'WITH', 'r.userResult = :user')
             ->andWhere('r.id IS NULL')
+            ->setParameter('search', "%{$search}%")
             ->setParameter('user', $user)
+            ->orderBy('cat.title', 'ASC')
+            ->addOrderBy('c.title', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        return $this->groupByCategoryTitle($challenges);
+    }
+
+    public function findWithSearch(?string $search): array
+    {
+        $challenges = $this->createQueryBuilder('c')
+            ->where('LOWER(c.title) LIKE LOWER(:search)')
+            ->leftJoin('c.category', 'cat')
+            ->addSelect('cat')
+            ->setParameter('search', "%{$search}%")
             ->orderBy('cat.title', 'ASC')
             ->addOrderBy('c.title', 'ASC')
             ->getQuery()
@@ -75,5 +92,18 @@ class ChallengeRepository extends ServiceEntityRepository
         }
 
         return $groupedList;
+    }
+
+
+    public function findWithFilter(User $user, string $query): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.userResult = :user')
+            ->andWhere('r.challenge.name LIKE :query')
+            ->setParameter('user', $user)
+            ->setParameter('query', "%{$query}%")
+            ->orderBy('r.id', 'DESC')
+            ->getQuery()
+            ->getResult();
     }
 }

@@ -10,6 +10,8 @@ use App\Repository\ChallengeRepository;
 use App\Repository\ResultRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -22,24 +24,37 @@ class ProfileController extends AbstractController
 {
 
     #[Route('/', name: 'index')]
-    public function index(ResultRepository $resultRepository, ChallengeRepository $challengeRepository): Response
+    public function index(Request $request, ResultRepository $resultRepository, ChallengeRepository $challengeRepository): Response
     {
         $user = $this->getUser();
 
         if (!$user instanceof User) {
             throw $this->createAccessDeniedException('User not authenticated.');
         }
-
         $results = $resultRepository->findByUser($user);
-        $groupedPendingChallenges = $challengeRepository->findWithoutResultForUserGrouped($user);
+
+        $formSearch = $this->createFormBuilder()
+            ->add("searchInput", TextType::class,  ['label' => false, 'required' => false, 'attr' => ['placeholder' => 'Nom du challenge']])
+            ->add("search", SubmitType::class)
+            ->getForm();
+
+        $searchInput = null;
+        $formSearch->handleRequest($request);
+        if ($formSearch->isSubmitted() && $formSearch->isValid()) {
+            $searchInput = $formSearch->get('searchInput')->getData();
+        }
+
+        $groupedPendingChallenges = $challengeRepository->findWithoutResultForUserGrouped($user, $searchInput);
         $pendingChallengesCount = 0;
 
         foreach ($groupedPendingChallenges as $group) {
             $pendingChallengesCount += count($group['items']);
         }
 
+
         return $this->render('profile/index.html.twig', [
             'results' => $results,
+            'formSearch' => $formSearch,
             'groupedPendingChallenges' => $groupedPendingChallenges,
             'pendingChallengesCount' => $pendingChallengesCount,
         ]);

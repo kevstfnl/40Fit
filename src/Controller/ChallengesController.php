@@ -8,8 +8,11 @@ use App\Entity\Challenge;
 use App\Entity\Result;
 use App\Entity\User;
 use App\Form\ResultType;
+use App\Repository\ChallengeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -25,11 +28,23 @@ class ChallengesController extends AbstractController
     }
 
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(Request $request, ChallengeRepository $challengeRepository): Response
     {
-        $groupedChallenges = $this->em->getRepository(Challenge::class)->findGroupedByCategory();
+
+        $formSearch = $this->createFormBuilder()
+            ->add("searchInput", TextType::class,  ['label' => false, 'required' => false, 'attr' => ['placeholder' => 'Nom du challenge']])
+            ->add("search", SubmitType::class)
+            ->getForm();
+
+        $searchInput = null;
+        $formSearch->handleRequest($request);
+        if ($formSearch->isSubmitted() && $formSearch->isValid()) {
+            $searchInput = $formSearch->get('searchInput')->getData();
+        }
+        $groupedChallenges = $challengeRepository->findWithSearch($searchInput);
 
         return $this->render('challenges/index.html.twig', [
+            'formSearch' => $formSearch,
             'groupedChallenges' => $groupedChallenges,
         ]);
     }

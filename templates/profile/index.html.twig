@@ -66,6 +66,8 @@
                         <span class="badge badge-outline">{{ pendingChallengesCount }} en attente</span>
                     </div>
                     <p class="text-sm opacity-70">Recherchez vos prochains challenges et lancez-vous.</p>
+                    {{ form_start(formSearch, { 'attr': {"class": "flex items-center gap-3"}}) }}
+
                     <label class="input input-bordered flex items-center gap-3 w-full">
                         <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
@@ -79,9 +81,10 @@
                                 <path d="m21 21-4.3-4.3"></path>
                             </g>
                         </svg>
-                        <input type="search" required placeholder="Rechercher un challenge"/>
+                        {{ form_row(formSearch.searchInput) }}
                     </label>
-
+                    {{ form_row(formSearch.search, { 'attr': {"class": "btn btn-primary"}}) }}
+                    {{ form_end(formSearch) }}
                     {% if pendingChallengesCount == 0 %}
                         <p class="text-sm opacity-60">Aucun challenge disponible pour enregistrer un résultat.</p>
                     {% endif %}

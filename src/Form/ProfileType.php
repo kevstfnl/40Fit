@@ -51,8 +51,8 @@ class ProfileType extends AbstractType
                     ),
                     new Length(
                         min: 6,
-                        minMessage: 'Votre mot de passe doit contenir au moins {{ limit }} caracteres.',
                         max: 4096,
+                        minMessage: 'Votre mot de passe doit contenir au moins {{ limit }} caracteres.',
                         groups: ['password_change'],
                     ),
                 ],
