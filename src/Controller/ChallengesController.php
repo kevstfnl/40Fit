@@ -61,14 +61,6 @@ class ChallengesController extends AbstractController
         }
 
         $resultForm = $this->createForm(ResultType::class, $result);
-        if ($result->getScore()) {
-            $resultForm->get('score')->setData($result->getScore());
-        }
-        if ($result->getDate()) {
-            $resultForm->get('date')->setData($result->getDate());
-        } else {
-            $resultForm->get('date')->setData(new \DateTime());
-        }
         $resultForm->handleRequest($request);
 
         if ($resultForm->isSubmitted() && $resultForm->isValid()) {

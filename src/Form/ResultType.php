@@ -2,15 +2,14 @@
 
 namespace App\Form;
 
-use App\Entity\Challenge;
 use App\Entity\Result;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 class ResultType extends AbstractType
 {
@@ -21,14 +20,23 @@ class ResultType extends AbstractType
                 'scale' => 2,
             ])
             ->add('date', DateType::class, [
-                'constraints' => [
-                    new LessThanOrEqual('today', message: "La date doit etre inferieur a aujourd'hui"),
-                ],
                 'attr' => [
                     'max' => new \DateTime()->format('Y-m-d'),
                 ],
             ])
         ;
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event): void {
+            $result = $event->getData();
+            if ($result->getScore()) {
+                $event->getForm()->get('score')->setData($result->getScore());
+            }
+            if ($result->getDate()) {
+                $event->getForm()->get('date')->setData($result->getDate());
+            } else {
+                $event->getForm()->get('date')->setData(new \DateTime());
+            }
+        });
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -6,6 +6,7 @@ use App\Repository\ResultRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ResultRepository::class)]
 class Result
@@ -16,6 +17,7 @@ class Result
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\PositiveOrZero(message: "Le score doit etre positif ou egale a zero")]
     private ?float $score = null;
 
     /**
@@ -33,6 +35,7 @@ class Result
     private ?Challenge $challenge = null;
 
     #[ORM\Column]
+    #[Assert\LessThanOrEqual('today', message: "La date doit etre inferieur a aujourd'hui")]
     private ?\DateTime $date = null;
 
     public function __construct()
